@@ -1,113 +1,224 @@
-import Image from "next/image";
+'use client';
+import Image from 'next/image';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  Container,
+  Fade,
+  Navbar,
+  Nav,
+  Typography,
+} from '@mui/material';
+import { Roll } from 'react-awesome-reveal';
+import { isMobile } from 'react-device-detect';
+import Contact from './Contact';
+import PortfolioCarousel from './PortfolioCarousel';
+import PortfolioFade from './PortfolioFade';
+import Particles from '@tsparticles/react';
+import { useEffect, useRef, useState } from 'react';
+import { AppBar, Toolbar, Button } from '@mui/material';
+import { useScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
+import SkillCard from './_components/SkillCard';
+import { Link, Element } from 'react-scroll';
 
-export default function Home() {
+const Page = () => {
+  const [particlesLoaded, setParticlesLoaded] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+  const frontEnd = useRef(null);
+  const backEnd = useRef(null);
+  const portfolio = useRef(null);
+  const contact = useRef(null);
+  const { scrollYProgress } = useScroll();
+
+  useEffect(() => {
+    scrollYProgress.onChange((latest) => {
+      if (latest > 0.25 && latest < 0.5) {
+        setActiveSection('frontEnd');
+      } else if (latest > 0.5 && latest < 0.75) {
+        setActiveSection('backEnd');
+      } else if (latest > 0.75) {
+        setActiveSection('portfolio');
+      } else {
+        setActiveSection('');
+      }
+    });
+  }, [scrollYProgress]);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+    <div className='App'>
+      <header className='App-header'>
+        <Particles
+          id='tsparticles'
+          particlesLoaded={() => Promise.resolve()}
+          options={{
+            background: {
+              color: {
+                value: '#0d47a1',
+              },
+            },
+            fpsLimit: 120,
+            interactivity: {
+              events: {
+                onClick: {
+                  enable: true,
+                  mode: 'push',
+                },
+                onHover: {
+                  enable: true,
+                  mode: 'repulse',
+                },
+                resize: true,
+              },
+              modes: {
+                push: {
+                  quantity: 4,
+                },
+                repulse: {
+                  distance: 200,
+                  duration: 0.4,
+                },
+              },
+            },
+            particles: {
+              color: {
+                value: '#ffffff',
+              },
+              links: {
+                color: '#ffffff',
+                distance: 150,
+                enable: true,
+                opacity: 0.5,
+                width: 1,
+              },
+              move: {
+                direction: 'none',
+                enable: true,
+                outModes: {
+                  default: 'bounce',
+                },
+                random: false,
+                speed: 6,
+                straight: false,
+              },
+              number: {
+                density: {
+                  enable: true,
+                  area: 800,
+                },
+                value: 80,
+              },
+              opacity: {
+                value: 0.5,
+              },
+              shape: {
+                type: 'circle',
+              },
+              size: {
+                value: { min: 1, max: 5 },
+              },
+            },
+            detectRetina: true,
+          }}
         />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <div className='headerText' id='headerText'>
+        <motion.div
+            initial={{ opacity: 0, scale: 0.5, y: 50 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
+          >
+            <Typography variant='h4'>
+              Hello there, my name is Braxton Mills.
+            </Typography>
+          </motion.div>
+          <Fade bottom delay={1500}>
+            <Typography variant='h6'>
+              I am a software engineer with back-end and front-end knowledge.
+            </Typography>
+          </Fade>
+          <Fade bottom delay={2500}>
+            <Typography variant='h6'>
+              Scroll down to view my skills and work.
+            </Typography>
+          </Fade>
+        </div>
+      </header>
+      <AppBar position='sticky'>
+        <Toolbar>
+          <Link to='frontend'>
+            <Button
+              color={activeSection === 'frontEnd' ? 'primary' : 'inherit'}
+            >
+              Front-End
+            </Button>
+          </Link>
+          <Link to='backEnd' smooth={true}>
+            <Button color={activeSection === 'backEnd' ? 'primary' : 'inherit'}>
+              Back-End
+            </Button>
+          </Link>
+          <Link to='portfolio' smooth={true}>
+            <Button
+              color={activeSection === 'portfolio' ? 'primary' : 'inherit'}
+            >
+              Portfolio
+            </Button>
+          </Link>
+          <Link to='contact' smooth={true}>
+            <Button color={activeSection === 'contact' ? 'primary' : 'inherit'}>
+              Contact
+            </Button>
+          </Link>
+        </Toolbar>
+      </AppBar>
+      <section id='frontEnd' className='section'>
+        Front-End
+      </section>
+      <section id='backEnd' className='section'>
+        Back-End
+      </section>
+      <section id='portfolio' className='section'>
+        Portfolio
+      </section>
+      <section id='contact' className='section'>
+        Contact
+      </section>
+      <Container className='frontEnd' id='frontEnd' ref={frontEnd}>
+        <div className='catTitle'>
+          <Typography variant='h4'>Front-End Skills:</Typography>
+        </div>
+        <br />
+        <div className='skillFlex'>
+          <SkillCard skill='HTML' delay={0} />
+          <SkillCard skill='CSS' delay={0.5} />
+          <SkillCard skill='JavaScript' delay={1} />
+          <SkillCard skill='Bootstrap' delay={1.5} />
+          <SkillCard skill='jQuery' delay={2} />
+          <SkillCard skill='React' delay={2.5} />
+        </div>
+      </Container>
+      <Container className='frontEnd' id='backEnd' ref={backEnd}>
+        <div className='catTitle'>
+          <Typography variant='h4'>Back-End Skills:</Typography>
+        </div>
+        <br />
+        <SkillCard skill='Python' delay={0} />
+        <SkillCard skill='Java' delay={500} />
+        <SkillCard skill='PHP' delay={1000} />
+        <SkillCard skill='SQL' delay={1500} />
+        <SkillCard skill='Node.js' delay={2000} />
+        <SkillCard skill='MongoDB' delay={2500} />
+      </Container>
+      <Container className='frontEnd' id='portfolio' ref={portfolio}>
+        <Typography variant='h4' className='portfolioHeader'>
+          Portfolio:
+        </Typography>
+        <div className='portfolioRow' />
+        {isMobile ? <PortfolioCarousel /> : <PortfolioFade />}
+      </Container>
+      <Contact ref={contact} />
+    </div>
   );
-}
+};
+export default Page;
