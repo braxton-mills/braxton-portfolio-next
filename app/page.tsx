@@ -6,15 +6,13 @@ import {
   CardHeader,
   Container,
   Fade,
-  Navbar,
-  Nav,
   Typography,
 } from '@mui/material';
 import { Roll } from 'react-awesome-reveal';
 import { isMobile } from 'react-device-detect';
-import Contact from './Contact';
-import PortfolioCarousel from './PortfolioCarousel';
-import PortfolioFade from './PortfolioFade';
+import Contact from './_components/Contact';
+import PortfolioCarousel from './_components/PortfolioCarousel';
+import PortfolioFade from './_components/PortfolioFade';
 import Particles from '@tsparticles/react';
 import { useEffect, useRef, useState } from 'react';
 import { AppBar, Toolbar, Button } from '@mui/material';
@@ -69,7 +67,6 @@ const Page = () => {
                   enable: true,
                   mode: 'repulse',
                 },
-                resize: true,
               },
               modes: {
                 push: {
@@ -105,7 +102,6 @@ const Page = () => {
               number: {
                 density: {
                   enable: true,
-                  area: 800,
                 },
                 value: 80,
               },
@@ -132,12 +128,12 @@ const Page = () => {
               Hello there, my name is Braxton Mills.
             </Typography>
           </motion.div>
-          <Fade bottom delay={1500}>
+          <Fade in={true} style={{ transitionDelay: '1500ms' }}>
             <Typography variant='h6'>
               I am a software engineer with back-end and front-end knowledge.
             </Typography>
           </Fade>
-          <Fade bottom delay={2500}>
+          <Fade in={true} style={{ transitionDelay: '2500ms' }}>
             <Typography variant='h6'>
               Scroll down to view my skills and work.
             </Typography>
@@ -217,7 +213,9 @@ const Page = () => {
         <div className='portfolioRow' />
         {isMobile ? <PortfolioCarousel /> : <PortfolioFade />}
       </Container>
-      <Contact ref={contact} />
+      <div ref={contact}>
+      <Contact />
+      </div>
     </div>
   );
 };
