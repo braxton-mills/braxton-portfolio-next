@@ -57,19 +57,19 @@ To run this project locally:
 
 1. Clone the repository
 
-   ```console
+   ```sh
    git clone https://github.com/braxton-mills/braxton-portfolio-next.git
    ```
 
 2. Install dependencies:
 
-   ```console
+   ```sh
    pnpm install
    ```
 
 3. Run the development server:
 
-   ```console
+   ```sh
    pnpm dev
    ```
 
