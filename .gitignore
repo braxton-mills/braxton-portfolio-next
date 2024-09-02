@@ -39,3 +39,6 @@ node_modules
 # WSL2 artifacts
 *:Zone.Identifier
 .aider*
+
+# Turborepo
+.turbo
