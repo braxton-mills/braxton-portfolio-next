@@ -1,6 +1,6 @@
 # Next.js Portfolio - Braxton Mills
 
-A brief description of what this project does and who it's for.
+Software Engineering portfolio built in Next.js 14+ with app directory, Tailwind CSS, Framer Motion, TypeScript, and ShadCN.
 
 ## Features
 
@@ -11,7 +11,7 @@ A brief description of what this project does and who it's for.
 
 Provide step-by-step instructions on how to install your project.
 
-```
+```bash
 npm install your-project-name
 ```
 
@@ -38,14 +38,22 @@ Provide information on how to reach you or your team for questions or support.
 =======
 # Braxton Mills Portfolio
 
-This is a personal portfolio website for Braxton Mills, showcasing skills, experience, and projects as a Full Stack Developer.
+Welcome to my personal portfolio website! This modern, responsive site showcases my skills, experience, and projects as a Full Stack Developer. Built with cutting-edge technologies, it offers an engaging and interactive user experience.
 
 ## Features
 
-- Responsive design using Next.js and Tailwind CSS
-- Animated components with Framer Motion
-- Sections for About, Experience, Projects, Skills, and Contact
-- Mobile-friendly navigation
+- Responsive design that looks great on all devices
+- Smooth, animated UI components for an engaging user experience
+- Comprehensive sections including:
+  - About Me: A brief introduction to my background and passion for development
+  - Experience: Detailed timeline of my professional journey
+  - Projects: Showcase of my notable works with descriptions and links
+  - Skills: Visual representation of my technical proficiencies
+  - Contact: Easy ways to get in touch with me
+- Mobile-friendly navigation for seamless browsing on smaller screens
+- Dark mode support for comfortable viewing in different lighting conditions
+- SEO optimized to ensure better visibility in search results
+- Fast loading times thanks to Next.js optimizations
 
 ## Installation
 
