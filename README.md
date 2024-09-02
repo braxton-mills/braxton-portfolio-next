@@ -1,52 +1,40 @@
-# Next.js Portfolio - Braxton Mills
-
-Software Engineering portfolio built in Next.js 14+ with app directory, Tailwind CSS, Framer Motion, TypeScript, and ShadCN.
-
-## Features
-
-- Next.js 14+ with App Router for efficient, server-side rendered React applications
-- Responsive design using Tailwind CSS for a mobile-first approach
-- Smooth animations and transitions powered by Framer Motion
-- TypeScript for enhanced code quality and developer experience
-- ShadCN UI components for a consistent and modern look
-- Dark mode support for comfortable viewing in different lighting conditions
-- SEO optimization for better visibility in search results
-- Interactive sections for About, Experience, Projects, Skills, and Contact
-- Fast loading times thanks to Next.js optimizations
-- Easy-to-maintain codebase with modular component structure
-
-## Installation
-
-Provide step-by-step instructions on how to install your project.
-
-```bash
-npm install your-project-name
-```
-
-## Usage
-
-Provide examples and code snippets on how to use your project.
-
-```javascript
-const yourProject = require('your-project-name');
-yourProject.someFunction();
-```
-
-## Contributing
-
-Explain how other developers can contribute to your project.
-
-## License
-
-State the license under which your project is available.
-
-## Contact
-
-Provide information on how to reach you or your team for questions or support.
-=======
 # Braxton Mills Portfolio
 
 Welcome to my personal portfolio website! This modern, responsive site showcases my skills, experience, and projects as a Full Stack Developer. Built with cutting-edge technologies, it offers an engaging and interactive user experience.
+
+## Technologies Used
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- React Icons
+- React Scroll
+
+## Project Structure
+
+- `app/`: Next.js app directory
+- `components/`: React components for each section
+- `public/`: Static assets
+
+## Prerequisites
+
+Before setting up the project, ensure you have the following installed:
+
+1. **Node.js**: Version 18 or higher.
+2. **pnpm**: Version 9.9.0 or higher, installed via Corepack.
+   1. *Note: This project uses [pnpm](https://pnpm.io/) as the package manager. If you don't have it installed, you can use npm or yarn instead.*
+   2. *If you haven't already, I'd highly recommend switching to pnpm for faster installs, disk space savings, and superior monorepo support over npm.*
+
+## Enable Corepack & Install pnpm
+
+If you haven't already, enable Corepack (which is included with Node.js 16.10 and later) by running:
+
+```bash
+corepack enable
+corepack prepare pnpm@9.9.0 --activate
+```
 
 ## Features
 
@@ -68,52 +56,23 @@ Welcome to my personal portfolio website! This modern, responsive site showcases
 To run this project locally:
 
 1. Clone the repository
-2. Install dependencies:
+
+   ```bash
+   git clone https://github.com/braxton-mills/braxton-portfolio-next.git
    ```
+
+2. Install dependencies:
+
+   ```bash
    pnpm install
    ```
+
 3. Run the development server:
-   ```
+
+   ```bash
    pnpm dev
    ```
 
 ## Usage
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Technologies Used
-
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
-- Framer Motion
-- React Icons
-- React Scroll
-
-## Project Structure
-
-- `app/`: Next.js app directory
-- `components/`: React components for each section
-- `public/`: Static assets
-
-## Contributing
-
-This is a personal project, but if you have suggestions or find bugs, please open an issue.
-
-## Contact
-
-Braxton Mills
-- GitHub: [braxton-mills](https://github.com/braxton-mills)
-- LinkedIn: [braxton-mills](https://linkedin.com/in/braxton-mills)
-- Email: me@braxtonmills.com
->>>>>>> REPLACE
-</source>
-
-This updated README.md provides a more accurate description of your portfolio project, including the technologies used, installation instructions, and project structure. It also includes your contact information as found in the Footer component.
-
-To apply these changes, you can use the following command:
-
-```bash
-git add README.md && git commit -m "Update README with project details"
-```
