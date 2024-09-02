@@ -31,7 +31,7 @@ Before setting up the project, ensure you have the following installed:
 
 If you haven't already, enable Corepack (which is included with Node.js 16.10 and later) by running:
 
-```bash
+```sh
 corepack enable
 corepack prepare pnpm@9.9.0 --activate
 ```
@@ -57,19 +57,19 @@ To run this project locally:
 
 1. Clone the repository
 
-   ```bash
+   ```sh
    git clone https://github.com/braxton-mills/braxton-portfolio-next.git
    ```
 
 2. Install dependencies:
 
-   ```bash
+   ```sh
    pnpm install
    ```
 
 3. Run the development server:
 
-   ```bash
+   ```sh
    pnpm dev
    ```
 
