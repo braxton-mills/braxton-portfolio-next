@@ -4,8 +4,16 @@ Software Engineering portfolio built in Next.js 14+ with app directory, Tailwind
 
 ## Features
 
-- List the main features of your project
-- Use bullet points for easy readability
+- Next.js 14+ with App Router for efficient, server-side rendered React applications
+- Responsive design using Tailwind CSS for a mobile-first approach
+- Smooth animations and transitions powered by Framer Motion
+- TypeScript for enhanced code quality and developer experience
+- ShadCN UI components for a consistent and modern look
+- Dark mode support for comfortable viewing in different lighting conditions
+- SEO optimization for better visibility in search results
+- Interactive sections for About, Experience, Projects, Skills, and Contact
+- Fast loading times thanks to Next.js optimizations
+- Easy-to-maintain codebase with modular component structure
 
 ## Installation
 
